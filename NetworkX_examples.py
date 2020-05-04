@@ -34,6 +34,19 @@ bft_list = dict(nx.bfs_successors(G, "A"))
 print(bft_list)
 
 
+# shortest path algorithms
+print(nx.shortest_path(G, "A", "E"))
+
+path = nx.dijkstra_path(G, "A", "F")
+print(path)
+
+paths = nx.single_source_dijkstra_path(G, "A")
+print(paths)
+
+path_lengths = nx.single_source_dijkstra_path_length(G, "A")
+print(path_lengths)
+
+
 # draw graph using matplotlib
 pos = nx.spectral_layout(G, 2)
 nx.draw_networkx(G, pos)
