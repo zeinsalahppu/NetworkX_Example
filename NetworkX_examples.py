@@ -27,6 +27,13 @@ print((G.in_degree("D")))
 print((G.out_degree("D")))
 
 
+# Traversal algorithms
+print(list(nx.dfs_preorder_nodes(G, "A")))
+
+bft_list = dict(nx.bfs_successors(G, "A"))
+print(bft_list)
+
+
 # draw graph using matplotlib
 pos = nx.spectral_layout(G, 2)
 nx.draw_networkx(G, pos)
