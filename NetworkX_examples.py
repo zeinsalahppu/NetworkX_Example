@@ -54,11 +54,21 @@ print(mst.edges)
 
 
 # draw graph using matplotlib
-pos = nx.spectral_layout(G)
+# pos = nx.spectral_layout(G)
+
+pos = {
+    'A': [-0.9, -0.1],
+    'B': [-0.3, 0.5],
+    'C': [-0.25, -0.4],
+    'D': [0.25, 0.5],
+    'E': [0.22, -0.3],
+    'F': [0.9, 0.1]
+}
+
 nx.draw_networkx(G, pos)
 labels = nx.get_edge_attributes(G,'weight')
 nx.draw_networkx_edge_labels(G, pos, edge_labels=labels)
 
 nx.draw_networkx_edges(G, pos, mst.edges, edge_color="r")
-
+plt.axis('equal')
 plt.show()
