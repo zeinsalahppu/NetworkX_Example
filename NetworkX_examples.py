@@ -47,10 +47,18 @@ path_lengths = nx.single_source_dijkstra_path_length(G, "A")
 print(path_lengths)
 
 
+# minimum spanning tree
+H = G.to_undirected()
+mst = nx.minimum_spanning_tree(H)
+print(mst.edges)
+
+
 # draw graph using matplotlib
-pos = nx.spectral_layout(G, 2)
+pos = nx.spectral_layout(G)
 nx.draw_networkx(G, pos)
 labels = nx.get_edge_attributes(G,'weight')
 nx.draw_networkx_edge_labels(G, pos, edge_labels=labels)
+
+nx.draw_networkx_edges(G, pos, mst.edges, edge_color="r")
 
 plt.show()
